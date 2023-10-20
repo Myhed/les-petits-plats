@@ -7,6 +7,11 @@ getRecipes().then(({recipes: recipesList}) => {
     const advancedSelect = new AdvancedSelect(recipes);
     const form = new Form(advancedSelect);
     const search = new Search(form, recipes);
+    console.log('results: ',search
+    .onTitles('limonade')
+    .onDescriptions('limonade')
+    .onIngredients('Lait de coco')
+    .getResults);
     console.log('form: ', form);
     console.log('search: ', search);
 })

@@ -2,7 +2,7 @@ export class Recipies {
     constructor(recipesList){
         console.log(recipesList);
         this.ingredients = recipesList
-        .map(({ ingredients }) => ingredients);
+        .map(({ ingredients }) => ingredients)
         this.presentations = recipesList
         .map(({description, id, image, name, servings, time}) => 
             ({description, id, name, servings, time, image}))
