@@ -6,9 +6,9 @@ function Recipes(list){
     let recipesTmp = {}
     while(cursorList < keys.length){
         if(keysWillStack.includes(keys[cursorList])){
-            recipesTmp[keys[cursorList]] = this._stackArrayOf(keys[cursorList], list)
+            recipesTmp[keys[cursorList]] = this.stackArrayOf(keys[cursorList], list)
         } else {
-            recipesTmp['presentations'] = this._getOnlyFrom(list, presentations)
+            recipesTmp['presentations'] = this.getOnlyFrom(list, presentations)
         }
         cursorList++
     }

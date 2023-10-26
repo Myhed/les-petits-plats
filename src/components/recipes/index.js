@@ -6,8 +6,8 @@ import {
 } from './functions.js';
 
 
-Recipes.prototype._getOnlyFrom = getOnlyFrom;
-Recipes.prototype._stackArrayOf = stackArrayOf;
+Recipes.prototype.getOnlyFrom = getOnlyFrom;
+Recipes.prototype.stackArrayOf = stackArrayOf;
 Recipes.prototype.getRecipes = getRecipes;
 
 export { Recipes }

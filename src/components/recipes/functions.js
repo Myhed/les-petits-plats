@@ -1,15 +1,19 @@
 export const stackArrayOf = (property, list) => {
-    let searched = [];
+    let stacked = [];
     let cursorList = 0;
-    console.log('list:', list)
     while(cursorList < list.length){
-        // console.log(cursorList)
-        searched = [...searched, list[cursorList][property]]
-        // console.log(searched);
+        if(Array.isArray(list[cursorList])){
+            stacked = [
+                ...stacked,
+                stackArrayOf(property, list[cursorList])
+            ]
+        }else{
+            stacked = [...stacked, list[cursorList][property]]
+        }
         cursorList++
     }
 
-    return searched;
+    return stacked;
 }
 
 export const getOnlyFrom = (recipes, recipeAttrKeeped) => {
