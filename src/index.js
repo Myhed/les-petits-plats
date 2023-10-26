@@ -1,6 +1,6 @@
 import { getRecipesFromJson } from './helpers/datas.js';
 import { Recipes } from './components/recipes/index.js';
-
+import { Search } from './components/search/index.js';
 
 
 getRecipesFromJson('GET', ({response}) => {
@@ -8,7 +8,12 @@ getRecipesFromJson('GET', ({response}) => {
     const { recipes: recipesFromJson } = response;
 
     const cardOfRecipes = new Recipes(recipesFromJson);
-    console.log(cardOfRecipes.getRecipes());
+    const { ingredients } = cardOfRecipes.getRecipes();
+    cardOfRecipes.stackArrayOf('ingredient', ingredients);
+
+    const search = new Search(cardOfRecipes);
+    search.onWord('coco',{ descriptions: true });
+
     // const appliances = searchOn('appliance', recipes)
     // const ingredients = searchOn('ingredients', recipes);
     // const descriptions =  searchOn('description', recipes);
@@ -19,6 +24,7 @@ getRecipesFromJson('GET', ({response}) => {
     // console.log('build pres:', buildChunkRecipes(recipes))
 
     // console.log('searched Appliances:', searchOn('appliance', recipes))
+
 });
 
 
