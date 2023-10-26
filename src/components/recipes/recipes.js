@@ -2,18 +2,19 @@ function Recipes(list){
     const keys = Object.keys(list[0]);
     const keysWillStack = ['name', 'ingredients', 'ustensils', 'description', 'appliance']
     const presentations = ['id','servings', 'time', 'image'];
+    this.recipes = list;
     let cursorList = 0;
-    let recipesTmp = {}
+    const decomposedRecipes = {}
+    const copiedList = JSON.parse(JSON.stringify(this.recipes))
     while(cursorList < keys.length){
         if(keysWillStack.includes(keys[cursorList])){
-            recipesTmp[keys[cursorList]] = this.stackArrayOf(keys[cursorList], list)
+            decomposedRecipes[keys[cursorList]] = this.stackArrayOf(keys[cursorList], copiedList)
         } else {
-            recipesTmp['presentations'] = this.getOnlyFrom(list, presentations)
+            decomposedRecipes['presentations'] = this.getOnlyFrom(copiedList, presentations)
         }
         cursorList++
     }
-
-    this.recipes = recipesTmp;
+    this.decomposedRecipes = decomposedRecipes;
 }
 
 export default Recipes;

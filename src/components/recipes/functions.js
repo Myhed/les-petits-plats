@@ -8,7 +8,10 @@ export const stackArrayOf = (property, list) => {
                 stackArrayOf(property, list[cursorList])
             ]
         }else{
-            stacked = [...stacked, list[cursorList][property]]
+            if(typeof list[cursorList][property] === 'string')
+              list[cursorList][property] = list[cursorList][property]
+                .toLowerCase()
+            stacked = [...stacked, list[cursorList][property]] 
         }
         cursorList++
     }
@@ -32,7 +35,10 @@ export const getOnlyFrom = (recipes, recipeAttrKeeped) => {
     }
     return keysKeeped;
 }
-
-export const getRecipes = function() {
+export const getRecipes = function (){
     return this.recipes;
+}
+
+export const getDecomposedRecipes = function() {
+    return this.decomposedRecipes;
 }
