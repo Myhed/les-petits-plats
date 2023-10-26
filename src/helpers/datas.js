@@ -1,4 +1,4 @@
-export const getRecipes = (method, cb) => {
+export const getRecipesFromJson = (method, cb) => {
     const xhr = new XMLHttpRequest();
     xhr.open(method, '../../datas/plats.json', true);
     xhr.responseType = 'json'
