@@ -48,9 +48,9 @@ export class Search {
     }
 
     entriesOnDescriptions(regexSearch){
-        const descriptionMatched = this.recipes.getPresentations
-            .map(({description, id}) => description
-                .match(regexSearch) ? this._recipe(id): null)
+        const descriptionMatched = this.recipes.getDescriptions
+            .map((description, index) => description
+                .match(regexSearch) ? this._recipe(index): null)
             .filter(desription => desription !== null)
 
         // console.log('descriptionMatched :' , descriptionMatched)

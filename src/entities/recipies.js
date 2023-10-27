@@ -4,8 +4,10 @@ export class Recipies {
         this.ingredients = recipesList
         .map(({ ingredients }) => ingredients)
         this.presentations = recipesList
-        .map(({description, id, image, name, servings, time}) => 
-            ({description, id, name, servings, time, image}))
+        .map(({id, image, name, servings, time}) => 
+            ({id, name, servings, time, image}))
+        this.descriptions = recipesList
+        .map(({ description }) => description)
         this.appliances = recipesList.map(
             ({ appliance }) => appliance);
         this.ustensils = recipesList.map(
@@ -15,7 +17,9 @@ export class Recipies {
     get getPresentations(){
         return this.presentations;
     }
-
+    get getDescriptions(){
+        return this.descriptions;
+    }
     get getIngredients() {
         return this.ingredients;
     }
