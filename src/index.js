@@ -7,13 +7,6 @@ const recipes = getRecipes().then(({recipes: recipesList}) => {
     const advancedSelect = new AdvancedSelect(recipes);
     const form = new Form(advancedSelect);
     const search = new Search(form, recipes);
-    console.log('results: ',search.onUstensils('cuillère à Soupe').onAppliances('Blender'))
-    // .onTitles('limonade')
-    // .onDescriptions('limonade')
-    // .onIngredients('Lait de coco')
-    // .onWord('')
-    // .getResults);
-    
     return search;
 })
 
@@ -21,7 +14,7 @@ const searchDom = document.querySelector('#search')
 
 searchDom.addEventListener('keyup', async (e) => {
     const search = await recipes;
-    const searchedDom = e.target.value;
+    const searchedDom = e.target.value.trim().toLowerCase();
     if(searchedDom.length >= 3){
         console.log('searched: ', searchedDom)
         const results = search
@@ -29,6 +22,7 @@ searchDom.addEventListener('keyup', async (e) => {
         .getResults
 
         console.log('results searched: ', results);
+        console.log('form: ',search.form)
     }
     console.log('e:', e.target.value)
 })
