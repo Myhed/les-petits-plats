@@ -6,6 +6,15 @@
     background-position: center center;
 }
 
-h1 {
+h1,h4 {
     font-family: 'Anton', sans-serif;
+}
+
+.card-img-top {
+    max-height: 260px;
+    object-fit: cover;
+}
+
+.card {
+    /* max-width: 300px; */
 }
