@@ -17,4 +17,10 @@ h1,h4 {
 
 .card {
     /* max-width: 300px; */
+    height: 731px;
+    overflow-y: scroll;
 }
+
+.card::-webkit-scrollbar {
+    display: none;
+  }
