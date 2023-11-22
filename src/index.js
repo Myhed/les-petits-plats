@@ -14,6 +14,7 @@ const recipes = getRecipes().then(({recipes: recipesList}) => {
     renderCardsRecipes(recipesList, recipesDom);
 
     form.searchBar(recipesDom)
+    form.searchSelect();
 })
 
 // const searchDom = document.querySelector('#search')

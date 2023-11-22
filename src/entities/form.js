@@ -9,6 +9,7 @@ export class Form {
         this.ustensils = Object.values(advancedSelect.getUstensils);
         this.appliances = Object.values(advancedSelect.getAppliances);
         this.ingredients = Object.values(advancedSelect.getIngredients);
+        this.labels = [];
         this.search = search;
     }
 
@@ -17,9 +18,9 @@ export class Form {
         const ingredientSelect = document.querySelector('.ingredient');
         ingredientSelect.innerHTML = `
         <ul class="p-3">
-            <li class="list-group-item"><input type="text" class="form-control"></li>
+            <li data-span-name="ingredient" class="list-group-item"><input type="text" class="form-control"></li>
         </ul>
-        ${ingredients.map(ingredient => `<li><a class='dropdown-item'>${ingredient}</a></li>`).join('')}
+        ${ingredients.map(ingredient => `<li data-span-name="ingredient"><a class='dropdown-item'>${ingredient}</a></li>`).join('')}
         `
         return this;
     }
@@ -29,9 +30,9 @@ export class Form {
         const applianceSelect = document.querySelector('.appliances');
         applianceSelect.innerHTML = `
         <ul class="p-3">
-            <li class="list-group-item"><input type="text" class="form-control"></li>
+            <li data-span-name-="appliance" class="list-group-item"><input type="text" class="form-control"></li>
         </ul>
-        ${appliances.map(appliance => `<li><a class='dropdown-item'>${appliance}</a></li>`).join('')}
+        ${appliances.map(appliance => `<li data-span-name="appliance"><a class='dropdown-item'>${appliance}</a></li>`).join('')}
         `
         return this;
     }
@@ -41,9 +42,9 @@ export class Form {
         const ustensilSelect = document.querySelector('.ustensils');
         ustensilSelect.innerHTML = `
         <ul class="p-3">
-            <li class="list-group-item"><input type="text" class="form-control"></li>
+            <li data-span-name="ustensil" class="list-group-item"><input type="text" class="form-control"></li>
         </ul>
-        ${ustensils.map(ustensil => `<li><a class='dropdown-item'>${ustensil}</a></li>`).join('')}
+        ${ustensils.map(ustensil => `<li data-span-name="ustensil"><a class='dropdown-item'>${ustensil}</a></li>`).join('')}
         `
         return this;
     }
@@ -88,5 +89,35 @@ export class Form {
                 break;
             }
         })
+    }
+
+    createLabelSelect(nameItemSelected){
+     this.labels = [...this.labels, `
+     <button type="button" class="btn btn-warning w-15">
+         <span class="text-white">${nameItemSelected}</span> <i class="fa-solid fa-xmark text-light"></i> 
+      </button>
+     `];
+     
+     return this.labels;
+    }
+    searchSelect(){
+        const dropdowns = document.querySelectorAll('.dropdown-menu li a');
+        const labelSelect = document.querySelector('#label-select');
+        dropdowns.forEach(a => {
+            a.addEventListener('click', (e) => {
+                const ul = a.parentNode.parentNode;
+                const li = a.parentNode;
+                labelSelect.innerHTML = `${this.createLabelSelect(a.textContent).map(label => label).join(' ')}`
+                const faxmarks = document.querySelectorAll('.fa-xmark');
+                faxmarks.forEach((faxmark, index) => {
+                    faxmark.addEventListener('click', (e)=>{
+                        this.labels.splice(index, 1);
+                        ul.appendChild(li);
+                        labelSelect.removeChild(faxmark.parentNode);
+                    })
+                });
+                ul.removeChild(li);
+            }, false);
+        });
     }
 }
