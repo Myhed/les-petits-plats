@@ -1,13 +1,11 @@
-import { cardBody } from 'cardBody.js';
+import { cardBody } from './cardBody.js';
 import { cardDom } from './cardDom.js'
-import { display } from './display';
 import { layoutElementIngredient } from './layoutchildIngredient.js';
-import { layoutIngredient } from './layoutIngredient';
+import { layoutIngredient } from './layoutIngredient.js';
 
 export { 
-    cardBod, 
+    cardBody, 
     cardDom,
-    display,
     layoutElementIngredient,
     layoutIngredient
 }

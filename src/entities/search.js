@@ -1,17 +1,21 @@
 export class Search {
-    constructor(form, recipes){
-        this.form = form;
+    constructor(recipes){
         this.recipes = recipes
         // console.log('recipies: ', recipes);
         this.resultsOnEachProperties = {}
         this.results = [];
     }
 
+    get getRecipes(){
+        return this.recipes.getPresentations.map((_, index) => this._recipe(index));
+    }
+
     _recipe(index){
         return {
-            appliances: this.recipes.getAppliances[index],
+            appliance: this.recipes.getAppliances[index],
             ingredients: this.recipes.getIngredients[index],
             ustensils: this.recipes.getUstensils[index],
+            description: this.recipes.getDescriptions[index],
             ...this.recipes.getPresentations[index]
         }
     }
