@@ -1,11 +1,10 @@
 
-
-window.onload = function(){
     const dropdownMenus = document.querySelectorAll('.dropdown-menu');
     
     const dropdownToggles = document.querySelectorAll('.dropdown-toggle');
     
-    
+    console.log(dropdownToggles);
+
     dropdownToggles.forEach((dropdownToggle, index) => {
         console.log(dropdownToggle)
         
@@ -28,5 +27,3 @@ window.onload = function(){
             dropdownMenus[index].style = "position:absolute; inset: 0px auto auto 0px; margin: 0px; transform: translate(0px, 40px)"
         })
     })
-
-}

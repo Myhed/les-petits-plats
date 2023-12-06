@@ -35,6 +35,7 @@ export const getOnlyFrom = (recipes, recipeAttrKeeped) => {
     }
     return keysKeeped;
 }
+
 export const getRecipes = function (){
     return this.recipes;
 }

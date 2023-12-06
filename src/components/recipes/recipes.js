@@ -2,6 +2,7 @@ function Recipes(list){
     const keys = Object.keys(list[0]);
     const keysWillStack = ['name', 'ingredients', 'ustensils', 'description', 'appliance']
     const presentations = ['id','servings', 'time', 'image'];
+    
     this.recipes = list;
     let cursorList = 0;
     const decomposedRecipes = {}

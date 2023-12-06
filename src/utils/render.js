@@ -1,4 +1,4 @@
-import { cardBody, cardDom, layoutElementIngredient, layoutIngredient } from "../components";
+import { cardBody, cardDom, layoutElementIngredient, layoutIngredient } from "../components/index.js";
 
 // export const renderCardsRecipes  = (entriesHTMLElement) => entriesHTMLElement
 // .map((recipe, i) => (
@@ -24,7 +24,7 @@ import { cardBody, cardDom, layoutElementIngredient, layoutIngredient } from "..
 
 
 export const renderCardsRecipes = (recipes, parent) => {
-    const t = recipes.map((recipe, i) => (
+    const t = JSON.parse(JSON.stringify(recipes)).map((recipe, i) => (
         recipe.ingredients = recipe.ingredients
         .reduce((acc, _, j) => {
             if(j%2){

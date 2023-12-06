@@ -11,4 +11,5 @@ Recipes.prototype.getOnlyFrom = getOnlyFrom;
 Recipes.prototype.stackArrayOf = stackArrayOf;
 Recipes.prototype.getRecipes = getRecipes;
 Recipes.prototype.getDecomposedRecipes = getDecomposedRecipes;
+
 export { Recipes }
