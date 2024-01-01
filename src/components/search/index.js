@@ -12,7 +12,8 @@ import {
     composeRecipe,
     getResults,
     distinct,
-    getResultsOnEachProperties
+    getResultsOnEachProperties,
+    getAllRecipes
 } from './functions.js';
 
 Search.prototype.onWord = onWord;
@@ -27,6 +28,6 @@ Search.prototype.checkOnString = checkOnString;
 Search.prototype.composeRecipe = composeRecipe;
 Search.prototype.getResults = getResults;
 Search.prototype.distinct = distinct;
+Search.prototype.getAllRecipes = getAllRecipes;
 Search.prototype.getResultsOnEachProperties = getResultsOnEachProperties
-
 export { Search }

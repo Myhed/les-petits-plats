@@ -3,11 +3,7 @@
     
     const dropdownToggles = document.querySelectorAll('.dropdown-toggle');
     
-    console.log(dropdownToggles);
-
     dropdownToggles.forEach((dropdownToggle, index) => {
-        console.log(dropdownToggle)
-        
         dropdownToggle.addEventListener('click', (e) => {
             if(e.target.classList.contains('show')){
                 e.target.classList.remove('show')

@@ -34,6 +34,11 @@ export const composeRecipe = function(index){
         }
 }
 
+
+export const getAllRecipes = function(){
+    return this.cardOfRecipes.getRecipes();
+}
+
 export const findEntries = function(propertyList, verifyeable){
     let cursorPropertyList = 0;
     let results = [];

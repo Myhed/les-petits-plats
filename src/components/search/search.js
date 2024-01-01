@@ -1,7 +1,8 @@
 
 
-function Search(cardOfRecipes, word = ''){
-    this.word = word.trim()
+function Search(cardOfRecipes, advancedForm){
+    // this.word = word.trim()
+    this.advancedForm = advancedForm;
     this.cardOfRecipes = cardOfRecipes;
     this.results = [];
     this.resultsOnEachProperties = {}
