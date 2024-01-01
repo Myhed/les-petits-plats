@@ -1,8 +1,9 @@
 import { searchBar, searchSelect } from './functions.js';
 
-export function Form(search){
+export function Form(search, advancedSelect){
     this.nextSearch;
     this.search = search;
+    this.advancedSelect = advancedSelect;
     this.searchs = [];
     this.labels = [];
     this.labelsDom = [];
