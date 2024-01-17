@@ -28,3 +28,8 @@ h1,h4 {
   .dropdown-menu {
     max-height: 400px;
   }
+
+  .cross {
+    font-size: 12px;
+    font-weight: bold;
+  }

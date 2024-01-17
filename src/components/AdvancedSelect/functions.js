@@ -8,7 +8,7 @@ const buildSet = (list, nameProperty = '') => {
             set[list[i][nameProperty]] = list[i][nameProperty];
         }
     }
-
+    console.log('set: ',set)
     return set;
 }
 
